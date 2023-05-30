@@ -27,11 +27,14 @@ out there right now. People are saying it sounds just like a real person speakin
 sentences = nltk.sent_tokenize(script)
 
 SPEAKER = "v2/en_speaker_6"
+speaker_lookup = ["v2/en_speaker_9","v2/en_speaker_2"]
+
 silence = np.zeros(int(0.25 * SAMPLE_RATE))  # quarter second of silence
 
 pieces = []
 num = 0
 for sentence in sentences:
-    audio_array = generate_audio(sentence, history_prompt=SPEAKER)
+    audio_array = generate_audio(sentence, history_prompt=speaker_lookup[num%2])
+    num += 1
     # format string "./out/test"+num+".wav"
     write_wav("./out/test"+str(num)+".wav", SAMPLE_RATE, audio_array)
