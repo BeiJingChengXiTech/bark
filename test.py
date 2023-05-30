@@ -40,4 +40,4 @@ for sentence in sentences:
     pieces += [audio_array, silence.copy()]
 
 
-Audio(np.concatenate(pieces), rate=SAMPLE_RATE)
+Audio(np.concatenate(pieces), rate=SAMPLE_RATE).export("./out/test", format="wav")
