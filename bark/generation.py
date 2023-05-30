@@ -209,6 +209,7 @@ def _load_model(ckpt_path, device, use_small=False, model_type="text"):
         raise NotImplementedError()
     model_key = f"{model_type}_small" if use_small or USE_SMALL_MODELS else model_type
     model_info = REMOTE_MODEL_PATHS[model_key]
+    print("------------ckpt_path", ckpt_path)
     if not os.path.exists(ckpt_path):
         logger.info(f"{model_type} model not found, downloading into `{CACHE_DIR}`.")
         _download(model_info["repo_id"], model_info["file_name"])
