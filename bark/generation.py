@@ -245,7 +245,7 @@ def _load_model(ckpt_path, device, use_small=False, model_type="text"):
     del checkpoint, state_dict
     _clear_cuda_cache()
     if model_type == "text":
-        tokenizer = BertTokenizer.from_pretrained("/root/audio/model/bark/")#
+        tokenizer = BertTokenizer.from_pretrained("bert-base-multilingual-cased")#
         return {
             "model": model,
             "tokenizer": tokenizer,
