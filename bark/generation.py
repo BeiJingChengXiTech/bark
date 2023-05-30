@@ -84,6 +84,9 @@ CUR_PATH = os.path.dirname(os.path.abspath(__file__))
 default_cache_dir = os.path.join(os.path.expanduser("~"), ".cache")
 CACHE_DIR = os.path.join(os.getenv("XDG_CACHE_HOME", default_cache_dir), "suno", "bark_v0")
 
+print("CACHE_DIR------------------------")
+print(CACHE_DIR)
+
 
 def _cast_bool_env_var(s):
     return s.lower() in ('true', '1', 't')
