@@ -37,8 +37,7 @@ num = 0
 for sentence in sentences:
     audio_array = generate_audio(sentence, history_prompt=speaker_lookup[num%2])
     num += 1
-    pieces += [audio_array, silence.copy()]
-    piecesCombne = piecesCombne.append(audio_array).append(silence.copy())
+    piecesCombne = np.append(piecesCombne, audio_array, silence.copy())
     # write pieces to wav file
     
 
