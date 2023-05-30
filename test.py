@@ -30,8 +30,7 @@ SPEAKER = "v2/en_speaker_6"
 silence = np.zeros(int(0.25 * SAMPLE_RATE))  # quarter second of silence
 
 pieces = []
+num = 0
 for sentence in sentences:
     audio_array = generate_audio(sentence, history_prompt=SPEAKER)
-    pieces += [audio_array, silence.copy()]
-
-write_wav("./out/test.wav", SAMPLE_RATE, pieces)
+    write_wav("./out/test"+num+".wav", SAMPLE_RATE, audio_array)ce.copy()]
