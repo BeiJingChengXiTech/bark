@@ -143,7 +143,7 @@ def _get_ckpt_path(model_type, use_small=False):
     key = model_type
     if use_small or USE_SMALL_MODELS:
         key += "_small"
-    return os.path.join(CACHE_DIR, REMOTE_MODEL_PATHS[key]["file_name"])
+    return os.path.join("/root/audio/model/bark/", REMOTE_MODEL_PATHS[key]["file_name"])
 
 
 def _download(from_hf_path, file_name):
@@ -241,7 +241,7 @@ def _load_model(ckpt_path, device, use_small=False, model_type="text"):
     del checkpoint, state_dict
     _clear_cuda_cache()
     if model_type == "text":
-        tokenizer = BertTokenizer.from_pretrained("bert-base-multilingual-cased")
+        tokenizer = BertTokenizer.from_pretrained("/root/audio/model/bark/")#
         return {
             "model": model,
             "tokenizer": tokenizer,
