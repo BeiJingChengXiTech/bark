@@ -33,4 +33,5 @@ pieces = []
 num = 0
 for sentence in sentences:
     audio_array = generate_audio(sentence, history_prompt=SPEAKER)
-    write_wav("./out/test"+num+".wav", SAMPLE_RATE, audio_array)
+    # format string "./out/test"+num+".wav"
+    write_wav("./out/test"+str(num)+".wav", SAMPLE_RATE, audio_array)
