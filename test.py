@@ -32,9 +32,16 @@ speaker_lookup = ["v2/en_speaker_9","v2/en_speaker_2"]
 silence = np.zeros(int(0.25 * SAMPLE_RATE))  # quarter second of silence
 
 pieces = []
+piecesCombne = np.zeros(int(0 * SAMPLE_RATE))
 num = 0
 for sentence in sentences:
     audio_array = generate_audio(sentence, history_prompt=speaker_lookup[num%2])
     num += 1
+    pieces += [audio_array, silence.copy()]
+    piecesCombne = piecesCombne.append(audio_array).append(silence.copy())
+    # write pieces to wav file
+    
+
     # format string "./out/test"+num+".wav"
-    write_wav("./out/test"+str(num)+".wav", SAMPLE_RATE, audio_array)
+
+write_wav("./out/test"+str(num)+".wav", SAMPLE_RATE, piecesCombne)
