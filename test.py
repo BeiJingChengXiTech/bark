@@ -19,7 +19,7 @@ from bark import generate_audio, SAMPLE_RATE
 preload_models()
 
 script = """
-Transformer模型（直译为“变换器”）是一种采用自注意力机制的深度学习模型，这一机制可以按输入数据各部分重要性的不同而分配不同的权重。该模型主要用于自然语言处理（NLP）与电脑视觉（CV）领域。
+与循环神经网络（RNN）一样，Transformer模型旨在处理自然语言等顺序输入数据，可应用于翻译、文本摘要等任务。而与RNN不同的是，Transformer模型能够一次性处理所有输入数据。注意力机制可以为输入序列中的任意位置提供上下文。如果输入数据是自然语言，则Transformer不必像RNN一样一次只处理一个单词，这种架构允许更多的并行计算，并以此减少训练时间。
 """.replace("\n", " ").strip()
 
 sentences = nltk.sent_tokenize(script)
@@ -38,4 +38,4 @@ for sentence in sentences:
     # write pieces to wav file
     # format string "./out/test"+num+".wav"
 
-write_wav("./out/test"+str(num)+".wav", SAMPLE_RATE, piecesCombne)
+write_wav("./out/test2.wav", SAMPLE_RATE, piecesCombne)
